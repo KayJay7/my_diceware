@@ -1,8 +1,12 @@
 [package]
 name = "my_diceware"
 version = "0.1.0"
-authors = ["alvise <alvisebruniera@gmail.com>"]
+authors = ["KayJay7 <kayjay7crates@protonmail.com>"]
 edition = "2018"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/KayJay7/my_diceware.git"
+description = "Simple implementation of diceware"
+keywords = ["diceware", "password", "passpharse"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
