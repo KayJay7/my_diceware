@@ -7,7 +7,7 @@ The original algorithm, by Arnold Reinhold, required to roll 5 six-faced dice to
 Each word adds adds 12.9 bits of entropy, so you would need 5 words to get around 64 bits of entropy, and 10 to get around 128 bits. The reccomended count is 6 words (77.5 bits), so it's set as default. Adding a couple of symbols in random places in the string (not between words, inside words) will make the password much more secure, even using just 4 words.
 Of course, this program will not generate 5 random numbers for every word, but just a single number between 0 and 7775.
 
-It's important to notice that the wordlist is not just any wordlist, the words were choosen to be "mor random", so you need to make sure you are using a good list.
+It's important to notice that the wordlist is not just any wordlist, the words were choosen to be "more random", so you need to make sure you are using a good list.
 The one provided with the algorithm and found (just for reference) in the "assets" directory is the original list from Reinhold, but there are others in different languages and from different authors.
 
 ## Why is this interesting?
@@ -17,10 +17,10 @@ It's easy for anyone with writing rights for the executable to find the word dic
 If an attacker were to replace all the strings with `"a\0\0.."` the program would always display `a a a ...` as generated password, making the cracking of the password just a matter of guessing the number of `a`s.
 
 To mitigate this problem, before generating the password, the program generates a salted hash of the whole dictionary and compare it to an hash that is hardcoded has an array of bytes.
-The hash is already more difficult to find compared to the strings, but to spice things up, it's also encrypted the hash with a stupid streamcipher I came up with in 3 minutes.
+The hash is already more difficult to find compared to the strings, but to spice things up, it's also encrypted with a stupid streamcipher I came up with in 3 minutes.
 Despite sounding expecially stupid, all of this actually works, try it for yourself.
 
-This is not 100% secure, an attacker could raplace the encrypted hash, replace it, and the program wouldn't notice. This, however, is definitely more difficult.
+This is not 100% secure, an attacker could find the encrypted hash, replace it, and the program wouldn't notice. This, however, is definitely more difficult.
 There's probably no way to make it 100% secure. Even if I where to use asymmetric encryption to ecnrypt the hash, so that the attacker wouldn't be able to encrypt their hash, the attacker could just replace the public key.
 
 ## This is stupid, why would I care?
@@ -35,4 +35,4 @@ Also there is a big bonus more malicious flaw I intentionally didn't point out, 
 
 ## Any future developement?
 
-Probably not, maybe one day I will try to make a version of this that actually make sense. For now you can use it to generate diceware passwords an you are almost sure that the actual dictionary will be used.
+Probably not, maybe one day I will try to make a version of this that actually makes sense. For now, you can use it to generate diceware passwords an you are almost sure that the actual dictionary will be used.
