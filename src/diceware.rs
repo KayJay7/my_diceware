@@ -18,18 +18,17 @@ pub fn generate_randoms(rounds: u32) -> Vec<usize> {
 pub fn parse_arguments(args: Args) -> u32 {
     let args: Vec<String> = args.collect();
     if args.len() == 1 {
-        // If unspecified defaults to 4 rounds
-        4
+        // If unspecified defaults to 6 rounds
+        6
     } else if args.len() == 2 {
         // Otherwise use specified rounds count
         parse_rounds(&args[1])
     } else {
         // If more than 1 argument is found, display usage information
         eprintln!(
-            "Usage:
-    my_diceware [rounds]
-
-Rounds is the (non negative) number of outputed words, default 4."
+            "Usage:\n\
+            \tmy_diceware [rounds]\n\n\
+            Rounds is the (non negative) number of outputed words, default 6."
         );
         std::process::exit(1);
     }
