@@ -19,7 +19,7 @@ pub fn check_integrity(dictionary: &[&str; 7776]) -> bool {
     let mut hasher = Blake2b::new();
     for word in dictionary.iter() {
         hasher.update(word);
-        // Add rice
+        // Add salt
         hasher.update("@bc#5'");
     }
     let hash = hasher.finalize();
